@@ -27,26 +27,36 @@ public class Ghi_Doc_FileText {
             System.out.println("Danh sach rong");
             return;
         }
+        int i = 0;
         for (SanPham sp : ds) {
-            System.out.println(sp.toString());
+            ++i;
+            System.out.println("STT " + i + " " + sp.toString());
         }
     }
 
-    public void write_SanPham() {
-        try (PrintWriter pw = new PrintWriter(file)) {
-            for (SanPham sp : ds) {
-                pw.println(sp.toString());
+    public void write_SanPham() 
+    {
+        try (PrintWriter pw = new PrintWriter(file)) 
+        {
+            for (SanPham sp : ds) 
+            {
+                pw.println(sp.toFileString());
             }
             System.out.println("Ghi file thanh cong");
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             System.out.println("Ghi file that bai");
         }
     }
 
-    public void read_SanPham() {
+    public void read_SanPham() 
+    {
         ds.clear();
-        try (Scanner sc = new Scanner(file)) {
-            while (sc.hasNextLine()) {
+        try (Scanner sc = new Scanner(file)) 
+        {
+            while (sc.hasNextLine()) 
+            {
                 String dong = sc.nextLine();
                 String[] arr = dong.split(";");
                 SanPham sp = new SanPham(arr[0], arr[1], Long.parseLong(arr[2]), Integer.parseInt(arr[3]));

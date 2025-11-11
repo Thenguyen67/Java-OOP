@@ -17,7 +17,7 @@ public class Test_SanPham {
             System.out.println("0. Thoat");
             System.out.print("Nhap lua chon: ");
             luaChon = sc.nextInt();
-            sc.nextLine(); // clear buffer
+            sc.nextLine();
             
             switch (luaChon) {
                 case 1:
