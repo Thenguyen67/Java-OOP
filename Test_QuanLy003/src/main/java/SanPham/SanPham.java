@@ -43,12 +43,10 @@ public class SanPham
 
     @Override
     public String toString() {
-        // Định dạng số cho đẹp, ví dụ: 30,000,000
         NumberFormat formatter = NumberFormat.getInstance(new Locale("vi", "VN"));
         String giaFormatted = formatter.format(giaSP);
         
-        // Dùng String.format để căn lề cho đẹp
-        return String.format("ID: %-7s | Tên: %-20s | Giá: %15s VNĐ | Số lượng: %d",
+        return String.format("ID: %-7s | Ten: %-20s | Gia: %15s VND | So luong: %d",
                              id_SP, tenSP, giaFormatted, sl_SP);
     }
 

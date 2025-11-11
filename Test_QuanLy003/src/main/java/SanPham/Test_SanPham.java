@@ -2,8 +2,10 @@ package SanPham;
 
 import java.util.Scanner;
 
-public class Test_SanPham {
-    public static void main(String[] args) {
+public class Test_SanPham 
+{
+    public static void main(String[] args) 
+    {
         Scanner sc = new Scanner(System.in);
         Ghi_Doc_FileText a = new Ghi_Doc_FileText();
         int luaChon;
