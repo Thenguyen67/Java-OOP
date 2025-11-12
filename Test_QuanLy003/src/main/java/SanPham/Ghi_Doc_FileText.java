@@ -78,23 +78,48 @@ public class Ghi_Doc_FileText
         }
     }
     
-    public ArrayList<SanPham> findByID_SanPham(String maSP) 
-    {
-        ArrayList<SanPham> ketQua = new ArrayList<>();
-
-        if (ds.isEmpty()) 
-        {
-            System.out.println("Danh sach rong, khong the tim kiem.");
-            return ketQua; // Trả về danh sách rỗng
+    public SanPham find_SanPham_ByID(String maSP) {
+        if (ds.isEmpty()) {
+            return null; // Danh sach rong
         }
-
-        for (SanPham sp : ds) 
-        {
-            if (sp.getId_SP().equals(maSP)) 
-            {
+        for (SanPham sp : ds) {
+            if (sp.getId_SP().equals(maSP)) {
+                return sp; // Tra ve san pham ngay khi tim thay
+            }
+        }
+        return null; // Khong tim thay san pham nao khop
+    }
+    
+    public ArrayList<SanPham> find_SanPham_ByPrice(long gia) {
+        ArrayList<SanPham> ketQua = new ArrayList<>();
+        if (ds.isEmpty()) {
+            System.out.println("Danh sach rong, khong the tim kiem.");
+            return ketQua; 
+        }
+        for (SanPham sp : ds) {
+            if (sp.getGiaSP() == gia) {
                 ketQua.add(sp);
             }
         }
-        return ketQua; 
+        return ketQua;
+    }
+    
+    public boolean giamSoLuongTrongKho(String maSP, int soLuongDaBan) {
+        // Tim san pham trong danh sach 'ds'
+        SanPham sp = find_SanPham_ByID(maSP);
+        
+        if (sp == null) {
+            System.out.println("Loi (giamSoLuong): Khong the tim thay SP voi ID " + maSP);
+            return false;
+        }
+        
+        if (sp.getSl_SP() < soLuongDaBan) {
+            System.out.println("Loi (giamSoLuong): Khong du ton kho cho " + sp.getTenSP());
+            return false;
+        }
+        
+        // Giam so luong
+        sp.setSl_SP(sp.getSl_SP() - soLuongDaBan);
+        return true;
     }
 }
