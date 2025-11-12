@@ -1,9 +1,7 @@
 package SanPham;
 
-// THEM 2 IMPORT BI THIEU
 import java.text.NumberFormat;
 import java.util.Locale;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,7 +13,6 @@ public class Test_SanPham {
         Ghi_Doc_FileText a = new Ghi_Doc_FileText();
         int luaChon;
         
-        // KHAI BAO FORMATTER BI THIEU
         NumberFormat formatter = NumberFormat.getInstance(new Locale("vi", "VN"));
         
         do {
@@ -25,7 +22,6 @@ public class Test_SanPham {
             System.out.println("3. Ghi danh sach vao file");
             System.out.println("4. Doc danh sach tu file");
             System.out.println("5. Tim san pham theo ID");
-            // THEM MENU BI THIEU
             System.out.println("6. Tim san pham theo Gia");
             System.out.println("7. Ban hang (Tao hoa don)");
             System.out.println("0. Thoat");
