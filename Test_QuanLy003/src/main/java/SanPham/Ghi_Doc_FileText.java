@@ -6,14 +6,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Ghi_Doc_FileText {
+public class Ghi_Doc_FileText 
+{
     private ArrayList<SanPham> ds = new ArrayList<>();
     private File file = new File("E:\\SaveFileWord\\SanPham.txt");
 
-    public Ghi_Doc_FileText() {
-        try {
+    public Ghi_Doc_FileText() 
+    {
+        try 
+        {
             file.createNewFile();
-        } catch (IOException e) {
+        } 
+        catch (IOException e) 
+        {
             System.out.println("Khong tao duoc file");
         }
     }
@@ -22,13 +27,16 @@ public class Ghi_Doc_FileText {
         ds.add(sp);
     }
 
-    public void print_SanPham() {
-        if (ds.isEmpty()) {
+    public void print_SanPham() 
+    {
+        if (ds.isEmpty()) 
+        {
             System.out.println("Danh sach rong");
             return;
         }
         int i = 0;
-        for (SanPham sp : ds) {
+        for (SanPham sp : ds) 
+        {
             ++i;
             System.out.println("STT " + i + " " + sp.toString());
         }
@@ -63,8 +71,30 @@ public class Ghi_Doc_FileText {
                 ds.add(sp);
             }
             System.out.println("Doc file thanh cong");
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             System.out.println("Doc file that bai");
         }
+    }
+    
+    public ArrayList<SanPham> findByID_SanPham(String maSP) 
+    {
+        ArrayList<SanPham> ketQua = new ArrayList<>();
+
+        if (ds.isEmpty()) 
+        {
+            System.out.println("Danh sach rong, khong the tim kiem.");
+            return ketQua; // Trả về danh sách rỗng
+        }
+
+        for (SanPham sp : ds) 
+        {
+            if (sp.getId_SP().equals(maSP)) 
+            {
+                ketQua.add(sp);
+            }
+        }
+        return ketQua; 
     }
 }
