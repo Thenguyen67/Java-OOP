@@ -27,11 +27,10 @@ public class Test_SanPham {
             System.out.println("0. Thoat");
             System.out.print("Nhap lua chon: ");
             
-            // SUA LOI SCANNER 
             try {
                 luaChon = Integer.parseInt(sc.nextLine());
             } catch (Exception e) {
-                luaChon = -1; // Gan la gia tri khong hop le de thong bao loi
+                luaChon = -1; 
             }
             
             switch (luaChon) 
@@ -42,7 +41,6 @@ public class Test_SanPham {
                     System.out.print("Nhap ten san pham: ");
                     String tenSP = sc.nextLine();
                     
-                    // SUA LOI SCANNER (nextLong/nextInt)
                     try {
                         System.out.print("Nhap gia: ");
                         long giaSP = Long.parseLong(sc.nextLine());
@@ -175,7 +173,6 @@ public class Test_SanPham {
                             int sl = soLuongTrongGio.get(i);
                             long thanhTien = sp.getGiaSP() * sl;
                             
-                            // Bien 'formatter' bay gio da ton tai va chay dung
                             System.out.printf("%-20s | %-5d | %-15s | %-15s\n",
                                     sp.getTenSP(),
                                     sl,
@@ -199,7 +196,6 @@ public class Test_SanPham {
                     break;
                     
                 default: 
-                    // Thong bao loi ro rang hon
                     System.out.println("Lua chon khong hop le! Vui long nhap tu 0 den 7.");
             }
         } while (luaChon != 0);
